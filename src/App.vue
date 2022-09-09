@@ -1,15 +1,24 @@
-<script setup>
-import Index from './views/Index.vue'
-import { onBeforeMount } from 'vue'
+<script > 
+import { mapActions } from 'vuex';
 
-function init(){
-  console.log("Hello")
+export default {
+  name:"App",
+  computed:{
+    ...mapActions('oauth', ['getToken'])
+  },
+
+  methods:{
+    init(){
+      this.getToken
+    }
+  },
+
+  created(){
+    this.init()
+  }
 }
-
-onBeforeMount(()=>init())
 </script>
 
 <template>
-<Index/>
-   
+  <h1>Hola</h1>
 </template>
