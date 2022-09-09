@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexView from '../views/Index.vue'
+import IndexView from '../views/Home/Index.vue'
 import AboutView from '../views/About.vue'
 
 const router = createRouter({
