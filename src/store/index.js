@@ -9,12 +9,6 @@ const store = createStore({
         loading,
         error
     }
-    ,
-    actions:{
-        hola(){
-            console.log("Hola from store")
-        }
-    }
 })
 
 export default store
