@@ -1,29 +1,36 @@
 <script setup>
-import {mapActions, useStore} from 'vuex'
+import LoadLayout from './layouts/LoadLayout.vue';
+import BaseLoading from './components/BaseLoading.vue';
+import MainLayout from './layouts/MainLayout.vue';
 
-const action = mapActions("oauth", ['getToken'])
+import { computed } from 'vue';
+import {mapActions, mapState, useStore} from 'vuex'
+
 const store = {
   $store:useStore()
 }
 
-function init(){
+const action = mapActions("oauth", ['getToken'])
+const loading = mapState('loading', ['isLoading'])
+
+const isLoading = computed(()=>loading.isLoading.call(store))
+
+function getToken(){
   action.getToken.call(store)
 }
 
-init()
+getToken()
 
 </script>
 
 <template>
-  <!-- Esta parte no la hemos tocado aún -->
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<div id="app">
+  <LoadLayout v-if="isLoading">
+    <BaseLoading/>
+  </LoadLayout>
+
+  <MainLayout v-else/>
+</div>
 </template>
 
 <style lang="stylus">
