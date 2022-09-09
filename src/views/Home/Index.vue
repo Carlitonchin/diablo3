@@ -1,5 +1,9 @@
+<script setup>
+import HomeTitle from '../../components/Home/HomeTitle.vue';
+</script>
+
 <template>
     <div class="home">
-    <h1>Home Page</h1>
+      <HomeTitle/>
   </div>
   </template>
