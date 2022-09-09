@@ -1,4 +1,8 @@
 <script setup>
+  import PoweredByFoot from './PoweredByFoot.vue';
+  import FootLinks from './FootLinks.vue';
+  import MadeByFoot from './MadeByFoot.vue';
+  
     const icons = [
         {
           classes: [ 'fab', 'vuejs' ],
