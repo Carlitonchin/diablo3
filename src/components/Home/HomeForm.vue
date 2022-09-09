@@ -1,6 +1,6 @@
 <script setup>
 import { regions } from '../../utils/regions';
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
@@ -26,9 +26,6 @@ const onSubmit = ()=>{
         }
     })
 }
-
-onMounted(()=>console.log(get_regions.value))
-
 </script>
 
 <template>
