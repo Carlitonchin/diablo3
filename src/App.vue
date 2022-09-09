@@ -1,22 +1,17 @@
-<script > 
-import { mapActions } from 'vuex';
+<script setup>
+import {mapActions, useStore} from 'vuex'
 
-export default {
-  name:"App",
-  computed:{
-    ...mapActions('oauth', ['getToken'])
-  },
-
-  methods:{
-    init(){
-      this.getToken
-    }
-  },
-
-  created(){
-    this.init()
-  }
+const action = mapActions("oauth", ['getToken'])
+const store = {
+  $store:useStore()
 }
+
+function init(){
+  action.getToken.call(store)
+}
+
+init()
+
 </script>
 
 <template>
