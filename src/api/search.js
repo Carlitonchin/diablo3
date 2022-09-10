@@ -13,18 +13,19 @@ const HOST = '.api.blizzard.com/'
  *  - @param account {String}
  * @returns {Promise}
  */
- function getApiAccount (region, account) {
-    const resource = `d3/profile/${account}/`
-    const API_URL = `${PROTOCOL}${region}${HOST}${resource}`
+function getApiAccount(region, account) {
+   const resource = `d3/profile/${account}/`
+   const API_URL = `${PROTOCOL}${region}${HOST}${resource}`
+   const locale = locales[region]
+   
+   const params = {
+      access_token: store.state.oauth.accessToken,
+      locale
+   }
 
-    const params = {
-        access_token: store.state.oauth.accessToken,
-        locale
-      }
+   return get(API_URL, { params })
+}
 
-    return get(API_URL, {params})
- }
-
- export {
-    getApiAccount
- }
+export {
+   getApiAccount
+}
