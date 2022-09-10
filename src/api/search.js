@@ -14,7 +14,7 @@ const HOST = '.api.blizzard.com/'
  * @returns {Promise}
  */
  function getApiAccount (region, account) {
-    const resourse = `d3/profile/${account}/`
+    const resource = `d3/profile/${account}/`
     const API_URL = `${PROTOCOL}${region}${HOST}${resource}`
 
     const params = {
