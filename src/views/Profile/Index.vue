@@ -6,10 +6,10 @@
     
     const route = useRoute()
     const router = useRouter()
-    const {region, battleTag:profile} = route.params
+    const {region, profile} = route.params
     const profileData = ref(null)
 
-    getApiAccount(region, battleTag)
+    getApiAccount(region, profile)
     .then(({data})=>profileData.value = data)
     .catch(err=>{
         profileData.value = null
